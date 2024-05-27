@@ -1,0 +1,30 @@
+Class:
+
+	Collection of Students + Chairs + Others ==> Grouping something
+	
+	Family ==> Family Members + Others
+	
+	Class ==> Properties + Methods
+	
+	Class ==> Methods
+	
+	Class ==> Properties
+	
+	
+	Class ==> Variables + functions
+	
+	House ==> Class
+	
+	Product
+	Register
+	
+	Employee
+		- adding
+		- view
+		- delete
+		- update
+		
+	class <class-name> {
+		properties
+		methods
+	}
