@@ -1,3 +1,5 @@
+#1
+
 Class:
 
 	Collection of Students + Chairs + Others ==> Grouping something
@@ -28,3 +30,46 @@ Class:
 		properties
 		methods
 	}
+	
+================================================================================
+
+#2
+
+	How can we access the Class members?
+	By creating an Object
+	
+	What is an Object?
+	An Object is an Instance of a Class, it's like a blueprint of a Class
+	
+	What is meant by instance of a class?
+	Allocating memory to the Class members is called instance of a Class
+	
+	Creating Object
+	new operator, we can create an Object:		$variable = new <ClassName>();
+	
+	
+	Static members
+	The Class members which are created with Static keyword are called Static members
+	
+	Non-Static members
+	The Class members which are not created with Static keyword are called
+	Non-Static members
+	
+	How can we access Static members of a Class?
+	Using Class name with Scope Resolution Operator (::)
+	
+	
+	
+	Scope Resolution Operator (::)
+	
+	By this operator, it's possible to access Static members of a Class,
+	Constants of a Class.
+	
+	<ClassName>::CONSTANT_NAME
+	
+	
+	Static Variables => ClassName
+	Non-Static Variables => Object
+	
+	Static Methods => ClassName or Object
+	Non-Static Methods => ClassName or Object
