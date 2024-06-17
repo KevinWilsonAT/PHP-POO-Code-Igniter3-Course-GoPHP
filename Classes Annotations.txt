@@ -73,3 +73,21 @@ Class:
 	
 	Static Methods => ClassName or Object
 	Non-Static Methods => ClassName or Object
+	
+================================================================================
+
+#3
+
+$this
+	Always refers the current Class Object
+	Scope - inside of a class only
+	Using $this, you can only access non-static members of a class only
+	
+	$this ==> non-static
+	
+	
+self::
+	Scope - inside of a class only
+	Using self::, you can only access static members of a class only
+	
+	self:: ==> only static
