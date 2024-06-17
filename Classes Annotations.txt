@@ -91,3 +91,17 @@ self::
 	Using self::, you can only access static members of a class only
 	
 	self:: ==> only static
+	
+================================================================================
+
+#4
+
+Constructor and Destructor
+
+	Default:
+	
+	public function __construct(){ connected to DB }
+	public function __destruct(){ close DB }
+	
+	The construct function gets called automatically at the time of Object creation.
+	The destruct function gets called automatically at the time of class execution completed.
