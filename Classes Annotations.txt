@@ -120,3 +120,64 @@ Inheritance
 	Base Class and Sub Class
 
 ================================================================================
+
+#7
+
+MVC Architecture
+
+	MVC is a design pattern, which is used to organize the code into a structured manner
+
+	Presentation Logic = HTML CSS
+
+	Business Logic = PHP & MySQL
+
+	The main GOAL of MVC Architecture is sepaating the Presentation Logic with Business Logic
+
+	MVC - Model View Controller
+
+		Model:
+			A Model is a class file. A model always deals with database operations
+
+			Models:
+				- register.php
+				- login.php
+
+		View:
+			A View is also a file which contains Presentation Logic
+
+			Views:
+				- register.php
+				- login.php
+
+		Controller:
+			The Controller is THE HEART of MVC Architecture. In MVC, each and every request will be handled by the Controller only.
+
+	register.php
+		HTML
+		CSS
+		JS
+		PHP & MySQL
+
+================================================================================
+
+#8
+
+================================================================================
+
+#9
+
+================================================================================
+
+#10
+
+================================================================================
+
+#11
+
+================================================================================
+
+#12
+
+================================================================================
+
+#13
