@@ -94,7 +94,7 @@ self::
 	
 ================================================================================
 
-#4
+#4 and #5
 
 Constructor and Destructor
 
@@ -105,3 +105,18 @@ Constructor and Destructor
 	
 	The construct function gets called automatically at the time of Object creation.
 	The destruct function gets called automatically at the time of class execution completed.
+	
+================================================================================
+
+#6
+
+Inheritance
+
+	Inheritance is the process of sharing the Base Class members into the Sub Classes
+	Inheritance is implemented by using "extends" keyword
+	
+	Parent Class and Child Class
+	
+	Base Class and Sub Class
+
+================================================================================
