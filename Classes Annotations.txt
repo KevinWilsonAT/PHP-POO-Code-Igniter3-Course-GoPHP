@@ -162,6 +162,51 @@ MVC Architecture
 
 #8
 
+$this keyword
+
+inheritance
+
+	MVC Architecture
+
+What is a framework?
+
+	A framework is created by using a programming language
+	
+		CodeIgniter => PHP
+		Laravel => PHP
+		ZEND => PHP
+		CakePHP => PHP
+		
+		PHP: by using this we can develop web applications
+		CodeIgniter: by using this we can develop web applications
+		
+		validate email / mobile in php = 10 ~ 15 lines
+		validate email / mobile in framework = 1 line
+		
+		
+	CI3
+		
+	CI4
+		
+		Concise code => Reduce the number of ilnes of 
+		
+		
+		
+		
+	XAMPP tool
+	
+		htdocs
+		
+		
+		
+	Cache
+		Config => Heart of CI3
+		Helpers
+		Libraries => Some predefined classes + our own classes
+		Models
+		Views
+		Controllers
+		
 ================================================================================
 
 #9
