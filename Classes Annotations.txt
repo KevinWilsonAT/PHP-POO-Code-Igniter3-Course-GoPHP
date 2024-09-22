@@ -264,13 +264,19 @@
 			RewriteRule ^(.*)$ index.php/$1 [L]
 		
 		location to save the file: htdocs/<project-folder>/.htaccess
-		
-		
-		
 
 =====================================================================================================================================================
 
 11-	Controllers in CodeIgniter Part 2 | Remapping method Calls
+
+	public function _remap($method/$action) {
+		if ($method/$action === 'some_method/some_action') {
+			$this -> $method()/$action();
+		}
+		else {
+			$this ->default_method();
+		}
+	}
 
 =====================================================================================================================================================
 
