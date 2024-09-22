@@ -1,228 +1,333 @@
-#1
+1-	What is a class?
 
-Class:
+	Class:
 
-	Collection of Students + Chairs + Others ==> Grouping something
-	
-	Family ==> Family Members + Others
-	
-	Class ==> Properties + Methods
-	
-	Class ==> Methods
-	
-	Class ==> Properties
-	
-	
-	Class ==> Variables + functions
-	
-	House ==> Class
-	
-	Product
-	Register
-	
-	Employee
-		- adding
-		- view
-		- delete
-		- update
+		Collection of Students + Chairs + Others ==> Grouping something
 		
-	class <class-name> {
-		properties
-		methods
-	}
+		Family ==> Family Members + Others
+		
+		Class ==> Properties + Methods
+		
+		Class ==> Methods
+		
+		Class ==> Properties
+		
+		
+		Class ==> Variables + functions
+		
+		House ==> Class
+		
+		Product
+		Register
+		
+		Employee
+			- adding
+			- view
+			- delete
+			- update
+			
+		class <class-name> {
+			properties
+			methods
+		}
 	
-================================================================================
+=====================================================================================================================================================
 
-#2
+2-	What is an object? | Static and Non-Static Members
 
-	How can we access the Class members?
-	By creating an Object
+		How can we access the Class members?
+		By creating an Object
+		
+		What is an Object?
+		An Object is an Instance of a Class, it's like a blueprint of a Class
+		
+		What is meant by instance of a class?
+		Allocating memory to the Class members is called instance of a Class
+		
+		Creating Object
+		new operator, we can create an Object:		$variable = new <ClassName>();
+
+		
+		
+		Static members
+		The Class members which are created with Static keyword are called Static members
+		
+		Non-Static members
+		The Class members which are not created with Static keyword are called
+		Non-Static members
+		
+		How can we access Static members of a Class?
+		Using Class name with Scope Resolution Operator (::)
+		
+		
+		
+		Scope Resolution Operator (::)
+		
+		By this operator, it's possible to access Static members of a Class,
+		Constants of a Class.
+		
+		<ClassName>::CONSTANT_NAME
+
+		
+		
+		Static Variables => ClassName
+		Non-Static Variables => Object
+		
+		Static Methods => ClassName or Object
+		Non-Static Methods => ClassName or Object
 	
-	What is an Object?
-	An Object is an Instance of a Class, it's like a blueprint of a Class
+=====================================================================================================================================================
+
+3-	$this keyword in PHP | self:: keyword
+
+	$this
+		Always refers the current Class Object
+		Scope - inside of a class only
+		Using $this, you can only access non-static members of a class only
+		
+		$this ==> non-static
+		
+		
+	self::
+		Scope - inside of a class only
+		Using self::, you can only access static members of a class only
+		
+		self:: ==> only static
 	
-	What is meant by instance of a class?
-	Allocating memory to the Class members is called instance of a Class
+=====================================================================================================================================================
+
+4-	Constructor and Destructor in PHP | 5-	Examples using Constructor and Destructor
+
+	Constructor and Destructor
+
+		Default:
+		
+		public function __construct(){ connected to DB }
+		public function __destruct(){ close DB }
+		
+		The construct function gets called automatically at the time of Object creation.
+		The destruct function gets called automatically at the time of class execution completed.
 	
-	Creating Object
-	new operator, we can create an Object:		$variable = new <ClassName>();
-	
-	
-	Static members
-	The Class members which are created with Static keyword are called Static members
-	
-	Non-Static members
-	The Class members which are not created with Static keyword are called
-	Non-Static members
-	
-	How can we access Static members of a Class?
-	Using Class name with Scope Resolution Operator (::)
-	
-	
-	
-	Scope Resolution Operator (::)
-	
-	By this operator, it's possible to access Static members of a Class,
-	Constants of a Class.
-	
-	<ClassName>::CONSTANT_NAME
-	
-	
-	Static Variables => ClassName
-	Non-Static Variables => Object
-	
-	Static Methods => ClassName or Object
-	Non-Static Methods => ClassName or Object
-	
-================================================================================
+=====================================================================================================================================================
 
-#3
+6-	Inheritance in PHP
 
-$this
-	Always refers the current Class Object
-	Scope - inside of a class only
-	Using $this, you can only access non-static members of a class only
-	
-	$this ==> non-static
-	
-	
-self::
-	Scope - inside of a class only
-	Using self::, you can only access static members of a class only
-	
-	self:: ==> only static
-	
-================================================================================
+	Inheritance
 
-#4 and #5
+		Inheritance is the process of sharing the Base Class members into the Sub Classes
+		Inheritance is implemented by using "extends" keyword
+		
+		Parent Class and Child Class
+		
+		Base Class and Sub Class
 
-Constructor and Destructor
+=====================================================================================================================================================
 
-	Default:
-	
-	public function __construct(){ connected to DB }
-	public function __destruct(){ close DB }
-	
-	The construct function gets called automatically at the time of Object creation.
-	The destruct function gets called automatically at the time of class execution completed.
-	
-================================================================================
-
-#6
-
-Inheritance
-
-	Inheritance is the process of sharing the Base Class members into the Sub Classes
-	Inheritance is implemented by using "extends" keyword
-	
-	Parent Class and Child Class
-	
-	Base Class and Sub Class
-
-================================================================================
-
-#7
-
-MVC Architecture
-
-	MVC is a design pattern, which is used to organize the code into a structured manner
-
-	Presentation Logic = HTML CSS
-
-	Business Logic = PHP & MySQL
-
-	The main GOAL of MVC Architecture is sepaating the Presentation Logic with Business Logic
-
-	MVC - Model View Controller
-
-		Model:
-			A Model is a class file. A model always deals with database operations
-
-			Models:
-				- register.php
-				- login.php
-
-		View:
-			A View is also a file which contains Presentation Logic
-
-			Views:
-				- register.php
-				- login.php
-
-		Controller:
-			The Controller is THE HEART of MVC Architecture. In MVC, each and every request will be handled by the Controller only.
-
-	register.php
-		HTML
-		CSS
-		JS
-		PHP & MySQL
-
-================================================================================
-
-#8
-
-$this keyword
-
-inheritance
+7-	Model View Controller MVC
 
 	MVC Architecture
 
-What is a framework?
+		MVC is a design pattern, which is used to organize the code into a structured manner
 
-	A framework is created by using a programming language
+		Presentation Logic = HTML CSS
+
+		Business Logic = PHP & MySQL
+
+		The main GOAL of MVC Architecture is sepaating the Presentation Logic with Business Logic
+
+		MVC - Model View Controller
+
+			Model:
+				A Model is a class file. A model always deals with database operations
+
+				Models:
+					- register.php
+					- login.php
+
+			View:
+				A View is also a file which contains Presentation Logic
+
+				Views:
+					- register.php
+					- login.php
+
+			Controller:
+				The Controller is THE HEART of MVC Architecture. In MVC, each and every request will be handled by the Controller only.
+
+		register.php
+			HTML
+			CSS
+			JS
+			PHP & MySQL
+
+=====================================================================================================================================================
+
+8- CodeIgniter 3 setup
+
+	$this keyword
+
+	inheritance
+
+		MVC Architecture
+
+	What is a framework?
+
+		A framework is created by using a programming language
+		
+			CodeIgniter => PHP
+			Laravel => PHP
+			ZEND => PHP
+			CakePHP => PHP
+			
+			PHP: by using this we can develop web applications
+			CodeIgniter: by using this we can develop web applications
+			
+			validate email / mobile in php = 10 ~ 15 lines
+			validate email / mobile in framework = 1 line
+			
+			
+		CI3
+			
+		CI4
+			
+			Concise code => Reduce the number of ilnes of 
+			
+			
+			
+			
+		XAMPP tool
+		
+			htdocs
+			
+			
+			
+		Cache
+			Config => Heart of CI3
+			Helpers
+			Libraries => Some predefined classes + our own classes
+			Models
+			Views
+			Controllers
+		
+=====================================================================================================================================================
+
+9-	CodeIgniter 3 URLs
+
+	Types of URLs:
 	
-		CodeIgniter => PHP
-		Laravel => PHP
-		ZEND => PHP
-		CakePHP => PHP
+		Query string based URLs:				http://example.com/test.php?id=1&name=ram
 		
-		PHP: by using this we can develop web applications
-		CodeIgniter: by using this we can develop web applications
-		
-		validate email / mobile in php = 10 ~ 15 lines
-		validate email / mobile in framework = 1 line
-		
-		
-	CI3
-		
-	CI4
-		
-		Concise code => Reduce the number of ilnes of 
-		
-		
-		
-		
-	XAMPP tool
-	
-		htdocs
-		
-		
-		
-	Cache
-		Config => Heart of CI3
-		Helpers
-		Libraries => Some predefined classes + our own classes
-		Models
-		Views
-		Controllers
-		
-================================================================================
+		Segment based URLs:		/segment/		http://example.com/test/1/ram
+												http://example.com/news/article/my_article
+			
+			example.com			= domain
+			test / news			= segment1 <-------- Controller
+			1 / article			= segment2 <-------- Method or Function
+			ram	/ my_article	= segment3 <-------- Parameter to the methods
+			
+			
+		class News {
+			function article(my_article) {
+				// some logic
+			}
+			
+			function test() {
+				// some logic
+			}
+		}
 
-#9
+=====================================================================================================================================================
 
-================================================================================
+10-	Controllers in CodeIgniter 3 Part 1
 
-#10
+=====================================================================================================================================================
 
-================================================================================
+11-	Controllers in CodeIgniter Part 2 | Remapping method Calls
 
-#11
+=====================================================================================================================================================
 
-================================================================================
+12-	Views in CodeIgniter 3
 
-#12
+=====================================================================================================================================================
 
-================================================================================
+13-	Loading views in controller
 
-#13
+=====================================================================================================================================================
+
+14-	Models in CodeIgniter | What is a Model | How to load a Model into a Controller
+
+=====================================================================================================================================================
+
+15-	View Controller Model Communication
+
+=====================================================================================================================================================
+
+16-	Helpers in CodeIgniter | Loading Helpers into Controllers
+
+=====================================================================================================================================================
+
+17-	Working with Helpers
+
+=====================================================================================================================================================
+
+18-	Libraries in CodeIgniter
+
+=====================================================================================================================================================
+
+19-	Email Library in CodeIgniter
+
+=====================================================================================================================================================
+
+20-	CodeIgniter 3 Form Validation
+
+=====================================================================================================================================================
+
+21-	Database Configuration in CodeIgniter 3
+
+=====================================================================================================================================================
+
+22-	Fetching data from table using MVC way
+
+=====================================================================================================================================================
+
+23-	QueryBuilder Class
+
+=====================================================================================================================================================
+
+24-	Registration form part1
+
+=====================================================================================================================================================
+
+25-	Registration form part2 | Saving data into a table
+
+=====================================================================================================================================================
+
+26-	Registration form with account activation process | Send an email to registered user
+
+=====================================================================================================================================================
+
+27-	Theme Integration in CodeIgniter
+
+=====================================================================================================================================================
+
+28-	Login Form Part1
+
+=====================================================================================================================================================
+
+29-	Login Form Part2
+
+=====================================================================================================================================================
+
+30-	Logout functionality
+
+=====================================================================================================================================================
+
+31-	Welcome profile of logged in user
+
+=====================================================================================================================================================
+
+32-	Change password
+
+=====================================================================================================================================================
+
+33-	Edit profile logged in user
