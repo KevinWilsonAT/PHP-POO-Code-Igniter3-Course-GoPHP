@@ -312,8 +312,8 @@
 		
 	Interactions in MVC:
 		
-		From Model:		Model => Controller => View
-		From View:		View => Controller => Model
+		From Model:		Model (Data) => Controller => View
+		From View:		View (Data) => Controller => Model
 		
 		Model and View don't communicate directly with each other, They use Controller as Intermediary
 
