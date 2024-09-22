@@ -282,6 +282,13 @@
 
 12-	Views in CodeIgniter 3
 
+	Views
+		Part where uses HTML, CSS, Bootstrap
+		
+	How can we load a view into Controller?
+		code:
+			$this->load->view("<view-file-name>");
+
 =====================================================================================================================================================
 
 13-	Loading views in controller
