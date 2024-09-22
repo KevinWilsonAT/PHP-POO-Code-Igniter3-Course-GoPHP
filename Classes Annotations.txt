@@ -240,6 +240,34 @@
 
 10-	Controllers in CodeIgniter 3 Part 1
 
+	A controller is a class file which contains methods
+		http://localhost/<project-folder>/Controller-Class/Method-inside-Controller
+	
+	Each and every controller class will be saved inside Application/Controllers
+	
+	Class name and File name should be matched:
+		Class Employee { ... }
+		Employee.php
+		
+	Class name should start wih Capital Letter:
+		Class Employee { ... }
+		
+	Each and every controller class should extends with a base class called CI_Controller
+		
+		
+		
+	HTACCESS
+		code:
+			RewriteEngine On
+			RewriteCond %{REQUEST_FILENAME} !-f
+			RewriteCond %{REQUEST_FILENAME} !-d
+			RewriteRule ^(.*)$ index.php/$1 [L]
+		
+		location to save the file: htdocs/<project-folder>/.htaccess
+		
+		
+		
+
 =====================================================================================================================================================
 
 11-	Controllers in CodeIgniter Part 2 | Remapping method Calls
