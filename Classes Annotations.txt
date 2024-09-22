@@ -243,7 +243,7 @@
 	A controller is a class file which contains methods
 		http://localhost/<project-folder>/Controller-Class/Method-inside-Controller
 	
-	Each and every controller class will be saved inside Application/Controllers
+	Each and every controller class will be saved in: Application/Controllers
 	
 	Class name and File name should be matched:
 		Class Employee { ... }
@@ -284,6 +284,7 @@
 
 	Views
 		Part where uses HTML, CSS, Bootstrap
+		Views are saves in: Application/Views
 		
 	How can we load a view into Controller?
 		code:
@@ -293,11 +294,28 @@
 
 14-	Models in CodeIgniter | What is a Model | How to load a Model into a Controller
 
+	Models
+		A model always deals with db data
+		A model is a class file
+		Model classes are save in: Application/Models
+		Model class name and file name must be matched.			Class Employee { ... }		Employee.php
+		Class name should start wih Capital Letter:				Class Employee { ... }
+		Each and every model class should extends with a base class called CI_Model
 	
-
+	How can we load a model into Controller?
+		code:
+			$this->load->model("<model-file-name>");	
+	
 =====================================================================================================================================================
 
 15-	View Controller Model Communication
+		
+	Interactions in MVC:
+		
+		From Model:		Model => Controller => View
+		From View:		View => Controller => Model
+		
+		Model and View don't communicate directly with each other, They use Controller as Intermediary
 
 =====================================================================================================================================================
 
