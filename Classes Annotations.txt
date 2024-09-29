@@ -96,7 +96,7 @@
 	
 =====================================================================================================================================================
 
-4-	Constructor and Destructor in PHP | 5-	Examples using Constructor and Destructor
+4-	Constructor and Destructor in PHP || 5-	Examples using Constructor and Destructor
 
 	Constructor and Destructor
 
@@ -280,7 +280,7 @@
 
 =====================================================================================================================================================
 
-12-	Views in CodeIgniter 3 | 13-	Loading views in controller
+12-	Views in CodeIgniter 3 || 13-	Loading views in controller
 
 	Views
 		Part where uses HTML, CSS, Bootstrap
@@ -319,7 +319,7 @@
 
 =====================================================================================================================================================
 
-16-	Helpers in CodeIgniter | Loading Helpers into Controllers
+16-	Helpers in CodeIgniter | Loading Helpers into Controllers	||  17-	Working with Helpers
 
 	Helpers in CodeIgniter
 		
@@ -337,11 +337,7 @@
 			
 	How to define a base URL: <project-folder>/Application/config/config.php
 	In the command ----->	$config['base_url'] = '';
-	You can write the address to be defined as base URL
-
-=====================================================================================================================================================
-
-17-	Working with Helpers
+	You can write the address to be defined as base URL	
 
 =====================================================================================================================================================
 
