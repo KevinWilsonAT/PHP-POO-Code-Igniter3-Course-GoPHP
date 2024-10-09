@@ -343,13 +343,86 @@
 
 18-	Libraries in CodeIgniter
 
+	A library is a class file
+	A helper is a function
+	
+	code:
+		
+		Welcome library class
+			test()
+			hi()
+			sample()
+		
+			$this->load->helper("<helper-file-name>");
+			$this->load->view("<view-file-name>");
+			$this->load->model("<model-file-name>");
+			
+			BlogModel
+				- getAllBlogs()
+				
+			$this->load->model("BlogModel");
+			
+			$this->BlogModel->getAllBlogs();
+			
+			
+			
+		form_validation
+		
+			$this->load->library("name");
+			
+			$this->load->library("email");
+			$this->load->library("upload");
+			$this->load->library("pagination");
+			
+			$this->load->library(array("email","upload","pagination"));
+			
+			
+			
+		form_validation
+			- run()
+			- set_rules()
+			
+		----------------------------------------
+		Loading libraries into controller
+		----------------------------------------
+
+		$this->load->library("form_validation");
+		
+		$this->form_validation->run();
+		$this->form_validation->set_rules();
+
 =====================================================================================================================================================
 
 19-	Email Library in CodeIgniter
 
+	$this->load->library("email");
+	$this->load->to("destination_email");
+	$this->load->subject("subject");
+	$this->load->message("message");
+	$this->load->cc("cc");
+	$this->load->bcc("bcc");
+
 =====================================================================================================================================================
 
 20-	CodeIgniter 3 Form Validation
+
+	Form validation
+	
+		-	set_rules()
+		-	run()
+		
+		$this->load->library("form_validation");
+		$this->form_validation->set_rules("name_input_field", "label_display_error_msg", "rules");
+		
+		rulse ex.:	required|min_length[3]|max_length[25]
+		
+		ex.:
+			$this->form_validation->set_rules("name", "Name", "required|min_length[3]");
+			$this->form_validation->set_rules("email", "Email", "required|valid_email");
+			$this->form_validation->set_rules("mobile", "Moble", "required|numeric");
+			
+			
+		echo form_error("name_input_field");
 
 =====================================================================================================================================================
 
