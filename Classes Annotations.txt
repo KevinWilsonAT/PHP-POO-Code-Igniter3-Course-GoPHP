@@ -428,6 +428,42 @@
 
 21-	Database Configuration in CodeIgniter 3
 
+	Database Configuration
+	
+	-	database.php
+	-	Config/Database.php
+	
+	Load database in Controller or Model:
+	
+		$this->load->database();
+		
+	-	Controller DB
+		-	Model1
+		-	Model2
+		-	Model3
+		
+		mysqli_error($con);
+		
+		$this->db->query();
+		$this->db->error();
+		
+		mysqli_fetch_row();
+		mysqli_fetch_assoc();
+		mysqli_fetch_array();
+		mysqli_fetch_object():
+		
+		
+		Fetching data from result set in CI
+		------------------------------------
+		
+		result();
+		result_object();
+		result_array();
+		
+		row();
+		row_object();
+		row_array();
+
 =====================================================================================================================================================
 
 22-	Fetching data from table using MVC way
