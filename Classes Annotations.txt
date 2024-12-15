@@ -468,17 +468,533 @@
 
 22-	Fetching data from table using MVC way
 
+	(AULA DE CONSULTA)
+
 =====================================================================================================================================================
 
 23-	QueryBuilder Class
+	
+	-	In CodeIgniter 3, the Query Builder is a convenient class used to interact with databases. It allows you to build and execute SQL queries in
+		a more structured, programmatic way, abstracting away raw SQL syntax. Below is an overview of how to use CodeIgniter 3's Query Builder.
+		
+		-	Example Setup
+		
+			-	First, ensure that the database is loaded in your config/autoload.php or through a controller.
+		
+				// autoload.php
+				$autoload['libraries'] = array('database');
+			
+			-	Alternatively, load the database in your controller method.
+		
+				// Inside a controller
+				$this->load->database();
+		
+		
+		-	Basic Query Builder Usage
 
+			1. Select Query
+			
+				-	To retrieve data from a table, use the select() method to specify the columns and get() to execute the query.
+				
+					// Selecting all records from a table
+					$query = $this->db->get('table_name');
+					
+					// Select specific columns
+					$this->db->select('id, name, email');
+					$query = $this->db->get('users');
+					
+			2. Where Clause
+				
+				-	You can use the where() method to add conditions to your query.
+				
+					// Single condition
+					$this->db->where('status', 'active');
+					$query = $this->db->get('users');
+					
+					// Multiple conditions
+					$this->db->where('status', 'active');
+					$this->db->where('age >', 18);
+					$query = $this->db->get('users');
+					
+			3. Insert Query
+				
+				-	To insert data, use the insert() method.
+				
+					$data = array(
+						'name' => 'John Doe',
+						'email' => 'johndoe@example.com',
+						'status' => 'active'
+					);
+					
+					$this->db->insert('users', $data);
+			
+			4. Update Query
+			
+				-	To update data, use the update() method along with where() to specify which record to update.
+				
+					$data = array(
+						'status' => 'inactive'
+					);
+					
+					$this->db->where('id', 1);
+					$this->db->update('users', $data);
+					
+			5. Delete Query
+				
+				-	For deleting records, you can use the delete() method.
+				
+					$this->db->where('id', 1);
+					$this->db->delete('users');
+					
+			6. Limit and Offset
+			
+				-	Use limit() and offset() to limit the number of rows returned or to implement pagination.
+				
+					// Get the first 10 records
+					$query = $this->db->limit(10)->get('users');
+					
+					// Get records 10 to 20
+					$query = $this->db->limit(10, 10)->get('users');
+					
+			7. Order By
+			
+				-	Use order_by() to specify the ordering of the result.
+				
+					// Order by name in ascending order
+					$this->db->order_by('name', 'asc');
+					$query = $this->db->get('users');
+					
+			8. Join Query
+			
+				-	You can join multiple tables using join().
+				
+					$this->db->select('users.id, users.name, orders.order_date');
+					$this->db->from('users');
+					$this->db->join('orders', 'orders.user_id = users.id');
+					$query = $this->db->get();
+					
+			9. Like Clause
+			
+				-	To perform a LIKE search, use the like() method.
+				
+					$this->db->like('name', 'John');
+					$query = $this->db->get('users');
+					
+			10. Distinct Query
+			
+				-	To retrieve distinct values, you can use distinct().
+				
+					$this->db->distinct();
+					$this->db->select('name');
+					$query = $this->db->get('users');
+					
+			
+			11. group_by()
+			
+				-	Used to group rows by one or more columns (similar to SQL GROUP BY).
+				
+					$this->db->select('category, COUNT(*) as total');
+					$this->db->from('products');
+					$this->db->group_by('category');
+					$query = $this->db->get();
+					
+			12. having()
+				
+				-	Used to filter records after applying GROUP BY (similar to SQL HAVING).
+				
+					$this->db->select('category, COUNT(*) as total');
+					$this->db->from('products');
+					$this->db->group_by('category');
+					$this->db->having('COUNT(*) >', 5);  // Products with more than 5 in category
+					$query = $this->db->get();
+					
+			13. or_where()
+			
+				-	Used to add an "OR" condition to your query. It works the same as where(), but applies the OR operator.
+					
+					$this->db->where('status', 'active');
+					$this->db->or_where('age >', 30);
+					$query = $this->db->get('users');
+					
+			14. like()
+			
+				-	Performs a LIKE query, used for partial matching in text columns.
+				
+					$this->db->like('name', 'John');
+					$query = $this->db->get('users');
+					
+				-	You can also specify whether the LIKE should be at the beginning (before), end (after), or both (both).
+				
+					$this->db->like('name', 'John', 'after');
+					$query = $this->db->get('users');
+					
+			15. not_like()
+			
+				-	Performs a NOT LIKE query to exclude records that match the specified pattern.
+				
+					$this->db->not_like('name', 'John');
+					$query = $this->db->get('users');
+					
+			16. or_like()
+			
+				-	Similar to like(), but applies the "OR" condition.
+					
+					$this->db->like('name', 'John');
+					$this->db->or_like('email', 'example.com');
+					$query = $this->db->get('users');
+
+			17. or_not_like()
+			
+				-	Similar to not_like(), but applies the "OR" condition.
+					
+					$this->db->not_like('name', 'John');
+					$this->db->or_not_like('email', 'example.com');
+					$query = $this->db->get('users');
+			
+			18. in()
+			
+				-	Used to check if a column value is in a set of values (SQL IN clause).
+					
+					$this->db->where_in('status', array('active', 'pending'));
+					$query = $this->db->get('users');
+
+			19. not_in()
+			
+				-	Used to exclude certain values from a query (SQL NOT IN clause).
+					
+					$this->db->where_not_in('status', array('inactive', 'banned'));
+					$query = $this->db->get('users');
+
+			20. where_in() and where_not_in() with subqueries
+			
+				-	You can also use subqueries within where_in() and where_not_in().
+					
+					$subquery = $this->db->select('id')->from('users')->where('status', 'active');
+					$this->db->where_in('user_id', $subquery);
+					$query = $this->db->get('orders');
+
+			21. exists()
+			
+				-	Checks whether a subquery exists. It's often used in conjunction with where() or other conditional methods.
+					
+					$this->db->where('status', 'active');
+					$this->db->where('EXISTS (SELECT * FROM orders WHERE orders.user_id = users.id)');
+					$query = $this->db->get('users');
+
+			22. select_max() and select_min()
+			
+				-	Used to get the maximum or minimum value of a column.
+					
+					$this->db->select_max('price');
+					$query = $this->db->get('products');
+
+					// or for min
+					$this->db->select_min('price');
+					$query = $this->db->get('products');
+
+			23. select_avg() and select_sum()
+			
+				-	To get the average (AVG) or sum (SUM) of a column.
+					
+					$this->db->select_avg('price');
+					$query = $this->db->get('products');
+
+					// or for sum
+					$this->db->select_sum('quantity');
+					$query = $this->db->get('orders');
+
+			24. insert_batch()
+			
+				-	Allows you to insert multiple rows in one query (batch insert).
+					
+					$data = array(
+						array('name' => 'John', 'email' => 'john@example.com'),
+						array('name' => 'Jane', 'email' => 'jane@example.com')
+					);
+					$this->db->insert_batch('users', $data);
+
+			25. update_batch()
+			
+				-	Allows you to update multiple records at once (batch update).
+					
+					$data = array(
+						array('id' => 1, 'status' => 'active'),
+						array('id' => 2, 'status' => 'inactive')
+					);
+					$this->db->update_batch('users', $data, 'id');
+
+			26. delete_batch()
+			
+				-	Used to delete multiple rows in one query (batch delete).
+					
+					$ids = array(1, 2, 3);
+					$this->db->where_in('id', $ids);
+					$this->db->delete('users');
+
+			27. trans_start() and trans_complete()
+			
+				-	These are used for transactions. You can group multiple database operations together and either commit or rollback them as a
+					single unit.
+					
+					$this->db->trans_start();
+
+					$this->db->insert('users', $data);
+					$this->db->insert('orders', $orderData);
+
+					$this->db->trans_complete();
+
+					if ($this->db->trans_status() === FALSE) {
+						// Transaction failed
+					}
+
+			28. escape()
+			
+				-	Escapes a string for safe inclusion in SQL queries.
+					
+					$safe_string = $this->db->escape('O\'Reilly');
+
+			29. get_compiled_select()
+			
+				-	Returns the SQL query string generated by the Query Builder for a SELECT statement.
+					
+					$this->db->select('name, email');
+					$this->db->from('users');
+					$sql = $this->db->get_compiled_select();
+					echo $sql;  // Outputs the SQL query string
+
+			30. get_compiled_insert()
+			
+				-	Similar to get_compiled_select(), but for INSERT queries.
+					
+					$data = array('name' => 'John', 'email' => 'john@example.com');
+					$sql = $this->db->set($data)->get_compiled_insert('users');
+					echo $sql;  // Outputs the SQL query string
+			
+			21. count_all()
+			
+					Counts all the rows in a table.
+					
+					$count = $this->db->count_all('users');
+					echo $count;  // Outputs the number of rows in the 'users' table
+			
+			22. count_all_results()
+			
+					Returns the number of rows that match a particular query, like SELECT COUNT(*).
+					
+					$this->db->where('status', 'active');
+					$count = $this->db->count_all_results('users');
+					echo $count;  // Outputs the number of active users
+			
+			23. set()
+			
+					Used to set individual values for an UPDATE statement. Can be used before update().
+					
+					$this->db->set('status', 'inactive');
+					$this->db->where('id', 1);
+					$this->db->update('users');
+			
+			24. select() with array()
+			
+					You can pass an array of columns for the select() method.
+					
+					$this->db->select(array('id', 'name', 'email'));
+					$query = $this->db->get('users');
+			
+			25. truncate()
+					
+					Truncates a table (removes all rows) but does not delete the table structure.
+					
+					$this->db->truncate('users');
+					26. escape_like_str()
+					Escapes a string for use in a LIKE query. This is used to prevent issues with special characters when searching for substrings.
+					
+					$search_term = "O'Reilly";
+					$safe_term = $this->db->escape_like_str($search_term);
+					$this->db->like('name', $safe_term);
+					$query = $this->db->get('users');
+					
+			27. list_fields()
+					
+					Returns a list of all field names from a table.
+					
+					$fields = $this->db->list_fields('users');
+					print_r($fields);  // Array of column names in 'users' table
+					
+			28. field_data()
+					
+					Returns metadata about the fields in a table.
+					
+					$fields = $this->db->field_data('users');
+					print_r($fields);  // Array of field metadata (type, length, etc.)
+					
+			29. trans_begin()
+					
+					Starts a database transaction manually, useful if you want to manage transactions without automatic start and end.
+					
+					$this->db->trans_begin();
+
+					$this->db->insert('users', $data);
+					$this->db->insert('orders', $orderData);
+
+					if ($this->db->trans_status() === FALSE) {
+						// Transaction failed, perform rollback
+						$this->db->trans_rollback();
+					} else {
+						// Transaction succeeded, commit changes
+						$this->db->trans_commit();
+					}
+					
+			30. trans_rollback()
+					
+					Rolls back a transaction if there is an error during a transaction.
+					
+					$this->db->trans_rollback();
+					
+			31. trans_commit()
+					
+					Commits the transaction, finalizing the changes made.
+					
+					$this->db->trans_commit();
+					
+			32. db_debug
+					
+					A property that can be set to FALSE to suppress error output in case of failure (useful for production).
+					
+					$this->db->db_debug = FALSE;
+					
+			33. set_dbdriver()
+					
+					Allows you to change the database driver dynamically.
+					
+					$this->db->set_dbdriver('mysqli');
+					
+			34. insert_id()
+					
+					Returns the last inserted ID after an INSERT query. This is useful for auto-increment fields.
+					
+					$this->db->insert('users', $data);
+					$last_id = $this->db->insert_id();
+					echo $last_id;  // Last inserted ID
+					
+			35. affected_rows()
+					
+					Returns the number of affected rows from the last query, typically used for INSERT, UPDATE, or DELETE operations.
+					
+					$this->db->update('users', $data, array('id' => 1));
+					echo $this->db->affected_rows();  // Number of rows updated
+					
+			36. trans_status()
+					
+					Checks the status of the current transaction (whether it was successful or not).
+					
+					$status = $this->db->trans_status();
+					if ($status === FALSE) {
+						// Transaction failed
+					}
+					
+			37. cache_on() and cache_off()
+					
+					These methods allow you to enable or disable query caching for the current database session. Query results are cached for faster subsequent retrievals.
+					
+					$this->db->cache_on();  // Enable caching
+					$query = $this->db->get('users');
+
+					// Disable caching
+					$this->db->cache_off();
+					
+			38. cache_delete()
+			
+					Deletes the cached query result for a specific table.
+					
+					$this->db->cache_delete('users');
+					
+			39. query() with binds
+					If you want to execute a query with bound parameters (like in prepared statements), use query() along with binds.
+					
+					$sql = "SELECT * FROM users WHERE id = ?";
+					$query = $this->db->query($sql, array($user_id));
+					
+			40. insert_string()
+			
+					Returns the INSERT query string, without actually executing the query. Useful if you need to examine the generated SQL.
+					
+					$data = array('name' => 'John', 'email' => 'john@example.com');
+					$sql = $this->db->insert_string('users', $data);
+					echo $sql;  // Outputs the SQL string
+					
+			41. update_string()
+			
+					Returns the UPDATE query string, without actually executing the query.
+					
+					$data = array('status' => 'inactive');
+					$sql = $this->db->update_string('users', $data, array('id' => 1));
+					echo $sql;  // Outputs the SQL string
+					
+			42. delete_string()
+			
+					Returns the DELETE query string, without actually executing the query.
+					
+					$sql = $this->db->delete_string('users', array('id' => 1));
+					echo $sql;  // Outputs the SQL string
+					
+			43. protect_identifiers()
+			
+					Escapes table names, column names, or database identifiers to protect against SQL injection and reserved keywords.
+					
+					$table = $this->db->protect_identifiers('users');
+					
+			44. escape()
+			
+					Escapes a string to be safely used in queries (particularly useful for dealing with special characters in strings).
+					
+					$safe_string = $this->db->escape("O'Reilly");
+					
+		-	Example: Complex Query Using Multiple Methods
+		
+			-	Here’s an example of using various methods in combination to fetch data with a join, where condition, limit, and ordering.
+			
+				$this->db->select('users.id, users.name, users.email, orders.order_date');
+				$this->db->from('users');
+				$this->db->join('orders', 'orders.user_id = users.id');
+				$this->db->where('users.status', 'active');
+				$this->db->order_by('orders.order_date', 'desc');
+				$this->db->limit(10);
+				$query = $this->db->get();
+				
+		-	Raw Queries
+		
+			-	Sometimes, you may need to run raw queries that aren’t covered by the Query Builder methods. In this case, you can use the query()
+				method.
+				
+				$sql = "SELECT * FROM users WHERE status = 'active'";
+				$query = $this->db->query($sql);
+					
+		-	Checking for Errors
+		
+			-	After executing queries, you can check for errors using error().
+				
+				if ($this->db->trans_status() === FALSE) {
+					// Handle error
+					$error = $this->db->error();
+					echo $error['message'];
+				}
+				
+		-	Conclusion
+		
+			-	CodeIgniter 3’s Query Builder provides a powerful and flexible way to interact with your database without writing raw SQL queries.
+				It helps with writing cleaner, safer, and more maintainable code.
+	
 =====================================================================================================================================================
 
 24-	Registration form part1
 
+	(Aula prática)
+
 =====================================================================================================================================================
 
 25-	Registration form part2 | Saving data into a table
+
+	(Aula prática)
 
 =====================================================================================================================================================
 
