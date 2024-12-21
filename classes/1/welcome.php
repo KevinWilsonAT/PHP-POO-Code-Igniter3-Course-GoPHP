@@ -6,3 +6,12 @@
             echo "This an add function";
         }
     }
+        
+    $xyz = new Test();
+    $xyz->add();
+    echo $xyz->x;
+    echo $xyz->name;
+
+    Test::add();
+
+?>

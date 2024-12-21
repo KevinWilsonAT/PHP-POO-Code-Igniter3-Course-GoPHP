@@ -1,5 +1,5 @@
 <?php
-    include './Test4.php';
+    include './Employee.php';
     $obj = new Employee();
     
     $empList = $obj->getAllEmployees();

@@ -1,10 +1,10 @@
 <?php
-    class Test4 {
+    class Employee {
         
         private $con;
         
         public function __construct(){
-            $this->con = mysqli_connect("localhost", "root", "", "ci3");
+            $this->con = mysqli_connect("localhost", "root", "", "db_gophp_ci3");
         }
         
         public function __destruct() {
@@ -13,46 +13,44 @@
         
         public function getAllEmployees() {
             $data = [];
-            $result = mysqli_query($this->con, "SELECT * FROM employees");
+            $result = mysqli_query($this->con, "SELECT * FROM employee");
             
-            if (mysqli_num_rows($result) > 0){
-                
-                while($row = mysqli_fetch_assoc($result)){
+            if (mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_assoc($result)) {
                     $data[] = $row;
                 }
                 return $data;
-                
             }
-            else{
+
+            else {
                 return $data;
             }
         }
-        public function getMaxSalaryEmployee(){
+
+        public function getMaxSalaryEmployee() {
             $data = [];
             $result = mysqli_query($this->con, "SELECT * FROM employees ORDER BY salary DESC LIMIT 1");
             
-            if (mysqli_num_rows($result) > 0){
-                
+            if (mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_assoc($result);
                 return $row;
-                
             }
-            else{
+            
+            else {
                 return $data;
             }
         }
         
-        public function getMinSalaryEmployee(){
+        public function getMinSalaryEmployee() {
             $data = [];
             $result = mysqli_query($this->con, "SELECT * FROM employees ORDER BY salary ASC LIMIT 1");
             
-            if (mysqli_num_rows($result) > 0){
-                
+            if (mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_assoc($result);
                 return $row;
-                
             }
-            else{
+            
+            else {
                 return $data;
             }
         }

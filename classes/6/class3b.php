@@ -1,17 +1,17 @@
 <?php
 	class Father {
 		
-		function money(){
+		function money() {
 			echo "<p>I have 10 money</p>";
 		}
 		
-		function vehicles(){
+		function vehicles() {
 			echo "<p>I have 2 vehicles</p>";
 		}
 	}
 	
-	class Child extends Father(){
-		function money(){
+	class Child extends Father {
+		function money() {
 			parent::money();
 			echo "<p>I have 5 money</p>";
 		}

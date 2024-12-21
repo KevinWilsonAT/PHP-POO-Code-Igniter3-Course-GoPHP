@@ -1,10 +1,7 @@
 <?php
-    include './Test4.php';
+    include './Employee.php';
     $obj = new Employee();
-    
     $empList = $obj->getAllEmployees();
-    echo "<pre>";
-    print_r($empList);
 ?>
 
 <html>
@@ -18,7 +15,7 @@
                 <?php if(count($empList) > 0){
                     foreach ($empList as $x){
                 ?>
-                <div class="col-md-3">
+                <div class="col-md-3 bg-success" style="margin:10px;">
                     <p><b>ID</b>: <?php echo $x['id'];?></p>
                     <p><b>Name</b>: <?php echo $x['name'];?></p>
                     <p><b>Salary</b>: <?php echo $x['salary'];?></p>
